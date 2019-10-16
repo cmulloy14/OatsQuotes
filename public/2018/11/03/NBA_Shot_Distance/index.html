@@ -3,15 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Oats Quotes</title>
+  <title>Parsing Large Basketball-Reference.com Data Sets | Oats Quotes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Oats Quotes">
-<meta property="og:url" content="http://oatsquotes.com/index.html">
+  <meta name="description" content="In one NBA season, what is the breakdown of shots made by distance?This question came in to my head one day and I was curious to find the answer. I felt that it I could make a pretty good guess: The d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Parsing Large Basketball-Reference.com Data Sets">
+<meta property="og:url" content="http://oatsquotes.com/2018/11/03/NBA_Shot_Distance/index.html">
 <meta property="og:site_name" content="Oats Quotes">
+<meta property="og:description" content="In one NBA season, what is the breakdown of shots made by distance?This question came in to my head one day and I was curious to find the answer. I felt that it I could make a pretty good guess: The d">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://oatsquotes.com/2018/11/03/NBA_Shot_Distance/hypothesis.png">
+<meta property="og:image" content="http://oatsquotes.com/2018/11/03/NBA_Shot_Distance/shotTable.png">
+<meta property="og:image" content="http://oatsquotes.com/2018/11/03/NBA_Shot_Distance/2016-2017_Shot_Chart.png">
+<meta property="og:updated_time" content="2019-09-24T02:56:57.501Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Oats Quotes">
+<meta name="twitter:title" content="Parsing Large Basketball-Reference.com Data Sets">
+<meta name="twitter:description" content="In one NBA season, what is the breakdown of shots made by distance?This question came in to my head one day and I was curious to find the answer. I felt that it I could make a pretty good guess: The d">
+<meta name="twitter:image" content="http://oatsquotes.com/2018/11/03/NBA_Shot_Distance/hypothesis.png">
   
     <link rel="alternative" href="/atom.xml" title="Oats Quotes" type="application/atom+xml">
   
@@ -22,9 +30,6 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-    
-    
   
   
       <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
@@ -37,8 +42,8 @@
           rootUrl: '/',
           fancybox: true,
           animate: false,
-          isHome: true,
-          isPost: false,
+          isHome: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -158,9 +163,7 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap" style="width: 80%; margin: auto">
-  
-    <article id="post-NBA_Shot_Distance" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap" style="width: 80%; margin: auto"><article id="post-NBA_Shot_Distance" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       
@@ -174,12 +177,19 @@
       <header class="article-header" >
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/03/NBA_Shot_Distance/">Parsing Large Basketball-Reference.com Data Sets</a>
+    <h1 class="article-title" itemprop="name">
+      Parsing Large Basketball-Reference.com Data Sets
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -208,19 +218,27 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>Post:</span><a href="/2018/11/03/NBA_Shot_Distance/">Parsing Large Basketball-Reference.com Data Sets</a></p>
+        <p><span>Author:</span><a href="/">Pat Mulloy</a></p>
+        <p><span>Posted On:</span>11-03-2018 - 20:20</p>
+        <p><span>Updated On:</span>09-23-2019 - 21:56</p>
+        <p>
+            <span>URL:</span><a class="post-url" href="/2018/11/03/NBA_Shot_Distance/">http://oatsquotes.com/2018/11/03/NBA_Shot_Distance/</a>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+    </div>
+
+
+
   
 </article>
 
+    
 
 
 
@@ -228,9 +246,44 @@
 
 
 
+    
 
-  
-  
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="Home"><i class="fa fa-home"></i></a>
+        
+        <a title="All articles"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <!--  <a href="/" title="Home"><i class="fa fa-home"></i></a> -->
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/11/03/NBA_Shot_Distance/">Parsing Large Basketball-Reference.com Data Sets</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
