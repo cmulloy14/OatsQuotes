@@ -3,15 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Oats Quotes</title>
+  <title>iOS Tidbits | Oats Quotes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Oats Quotes">
-<meta property="og:url" content="http://oatsquotes.com/archives/index.html">
+  <meta name="description" content="Tidbit #2 – type(of:) vs ‘is’  I recently ran in to code that used type(of:) to compare the types of two objects. This code failed when I changed one object to be optional.This was strange to me, con">
+<meta property="og:type" content="website">
+<meta property="og:title" content="iOS Tidbits">
+<meta property="og:url" content="http://oatsquotes.com/Tidbits/index.html">
 <meta property="og:site_name" content="Oats Quotes">
+<meta property="og:description" content="Tidbit #2 – type(of:) vs ‘is’  I recently ran in to code that used type(of:) to compare the types of two objects. This code failed when I changed one object to be optional.This was strange to me, con">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-01-29T05:11:12.166Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Oats Quotes">
+<meta name="twitter:title" content="iOS Tidbits">
+<meta name="twitter:description" content="Tidbit #2 – type(of:) vs ‘is’  I recently ran in to code that used type(of:) to compare the types of two objects. This code failed when I changed one object to be optional.This was strange to me, con">
   
     <link rel="alternative" href="/atom.xml" title="Oats Quotes" type="application/atom+xml">
   
@@ -36,7 +40,7 @@
           animate: false,
           isHome: false,
           isPost: false,
-          isArchive: true,
+          isArchive: false,
           isTag: false,
           isCategory: false,
           open_in_new: false
@@ -163,48 +167,112 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap" style="width: 80%; margin: auto">
+      <div class="body-wrap" style="width: 80%; margin: auto"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
   
-  
-    
-    
+    <div class="article-meta">
       
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a style = "color: white;" class="archive-article-title" href="/2018/11/03/NBA_Shot_Distance/">Parsing Large Basketball-Reference.com Data Sets</a>
+  <div class="article-inner" >
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header" >
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS Tidbits
     </h1>
   
 
-        <div class="article-info info-on-archive">
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
+              <style>
+    .article-meta {
+        display: none;
+    }
+    #container .article .article-title {
+        padding-right: 0;
+    }
+    .article-header {
+        padding: 0;
+        padding-top: 26px;
+        border-left: none;
+        text-align: center;
+    }
+    .article-header:hover {
+        border-left: none;
+    }
+    .article-title {
+        font-size: 1.6em
+    }
+    .article-meta {
+        display: none;
+    }
+    .article-entry hr {
+        margin: 0;
+    }
+    #container .article-info-post.article-info {
+      display: none;
+      }
+    #container .article .article-title {
+    padding: 0;
+    }
+</style>
+
 
           
-        </div>
-        <div class="clearfix"></div>
-    </header>
+        <p><strong> Tidbit #2 – type(of:) vs ‘is’  </strong><br>I recently ran in to code that used <strong>type(of:)</strong> to compare the types of two objects. This code failed when I changed one object to be optional.<br>This was strange to me, considering it seemed that an object and an optional object of the same type should be the same type, right?<br>Turns out, <strong>type(of:)</strong> returns the type of the object at runtime, and an optional is actually an Optional type with that type as its wrapped value.<br>The better option in this case is to use <strong>is</strong> to check the type, becuase I really only wanted to know the subclass of the object.<br><strong>is</strong> returns whether the object is a subclass of the specified type. Check out the behavior below.</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">let</span> string = <span class="string">"non-optional"</span></div><div class="line"><span class="keyword">let</span> optionalString: <span class="type">String</span>? = <span class="string">"optional"</span></div><div class="line"><span class="keyword">let</span> nilString: <span class="type">String</span>? = <span class="literal">nil</span></div><div class="line"></div><div class="line">type(of: string) <span class="comment">// String.Type</span></div><div class="line">type(of: optionalString) <span class="comment">// Optional&lt;String&gt;.Type</span></div><div class="line">type(of: nilString) <span class="comment">// Optional&lt;String&gt;.Type</span></div><div class="line"></div><div class="line">string <span class="keyword">is</span> <span class="type">String</span> <span class="comment">// true - warning: 'is' test is always true</span></div><div class="line">optionalString <span class="keyword">is</span> <span class="type">String</span> <span class="comment">// true </span></div><div class="line">nilString <span class="keyword">is</span> <span class="type">String</span> <span class="comment">// false </span></div><div class="line"></div><div class="line"><span class="comment">/*  </span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment"> Last two 'is' check warnings: </span></div><div class="line"><span class="comment"> Checking a value with optional type 'String?' against dynamic type 'String' succeeds whenever the value is non-nil; </span></div><div class="line"><span class="comment"> did you mean to use '!= nil'?</span></div><div class="line"><span class="comment"> Replace 'is String' with '!= nil'</span></div><div class="line"><span class="comment"> */</span> </div><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<p>It’s important to note how <strong>is</strong> behaves with optionals; it basically turns in to a nil check.<br>Some interesting, not so obvious behavior.</p>
+<p><br><br><br></p>
+<hr>
+<p><br></p>
+<p><strong> Tidbit #1 – Defer vs Return: Execution Order </strong></p>
+<p>According to swift.org, “A <strong>defer</strong> statement is used for executing code just before transferring program control outside of the scope that the defer statement appears in.”</p>
+<p>So we often see <strong>defer</strong> at the beggining of a method, containing some sort of clean-up actions that will be perofrmed before the function is finished. This is helpful when there are multiple <strong>return</strong> statments in a method, that are perhaps nested in an if/else if/else chain or a switch statment, so we don’t have to duplicate clean-up code. </p>
+<p>But exactly when the <strong>defer</strong> block executes is not neccesarily intuitive. I found myself wondering, what happens first: the code in a defer block, or the code in a return statement? I ran the following code to find out: </p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">defer</span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"deferred"</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">print</span>(<span class="string">"returned"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line">test()</div></pre></td></tr></table></figure>
+<p>Output:<br><figure class="highlight swift"><table><tr><td class="code"><pre><div class="line">returned</div><div class="line">deferred</div></pre></td></tr></table></figure></p>
+<p>I’ve always hought a <strong>return</strong> statement is the last thing executed in a Swift function, but it turns out <strong>defer</strong> executes even after <strong>return</strong>. So this is a good little tidbit to keep in mind when using <strong>defer</strong> in your Swift functions. </p>
+
+      
+      
+    </div>
+    
   </div>
+  
+    
+
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+
+
+
 
     
 
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
@@ -249,17 +317,6 @@
         };
     })
 </script>
-
-    <button class="hide-labels">TAG 开关</button>
-    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">
-    </script>
-    <script>
-        $(document).ready(function() {
-            $("button").click(function() {
-                $(".article-info").toggle(200);
-            });
-        });
-    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>

@@ -3,6 +3,7 @@ title: Parsing Large Basketball-Reference.com Data Sets
 ---
 ## In one NBA season, what is the breakdown of shots made by distance?
 
+
 This question came in to my head one day and I was curious to find the answer. I felt that it I could make a pretty good guess:
 
 ### The distance with the most shots made would be the one closest to the basket, and the number of shots made would decrease as the distance increases, until the distance is 3-point line distance, at which point the shots made will spike, but continue to decrease after that initial 3-point line spike.
