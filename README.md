@@ -7,8 +7,7 @@ This README is mostly for my personal use, as documentation on how to use the si
 
 #### Generating a new post 
 `hexo new post <title>` for a new post, this will end up on the main page.
-`hexo new page <title> for a new page.
-`
+`hexo new page <title>` for a new page.
 
 
 #### Updating iOS tidbits 
